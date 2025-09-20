@@ -78,3 +78,5 @@
 # Commit : Mise en place du service OlympicService (2025-10-07 23:02) 
 
 # Commit : Création du composant HomeComponent (2025-09-21 09:52) 
+
+# Commit : Implémentation du routage principal (2025-09-20 20:05) 
