@@ -86,3 +86,5 @@
 # Commit : Amélioration du design et refactorisation du code (2025-10-04 07:38) 
 
 # Commit : Tests et validation du chargement JSON (2025-10-02 06:15) 
+
+# Commit : Optimisation des performances et nettoyage final (2025-09-22 20:55) 
