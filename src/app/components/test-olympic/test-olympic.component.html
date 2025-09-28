@@ -1,0 +1,23 @@
+<!-- Message pendant le chargement -->
+<div *ngIf="loading">⏳ Chargement des données...</div>
+
+<!-- Liste des pays et participations -->
+<div *ngIf="!loading && olympics.length > 0">
+  <ul>
+    <li *ngFor="let country of olympics">
+      <h3>{{ country.country }}</h3>
+      <ul>
+        <li *ngFor="let p of country.participations">
+          {{ p.year }} - {{ p.city }} :
+          {{ p.medalsCount }} médailles /
+          {{ p.athleteCount }} athlètes
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<!-- Message si aucune donnée -->
+<div *ngIf="!loading && olympics.length === 0">
+  🚫 Aucune donnée disponible.
+</div>

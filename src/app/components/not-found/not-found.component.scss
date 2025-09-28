@@ -1,0 +1,41 @@
+.not-found {
+  text-align: center;
+  padding: 3rem;
+  font-family: Arial, sans-serif;
+
+  h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 2rem;
+  }
+
+  .medal {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    animation: bounce 1.5s infinite;
+  }
+
+  button {
+    background: #f39c12;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+
+    &:hover {
+      background: #e67e22;
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}

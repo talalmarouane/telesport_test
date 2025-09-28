@@ -1,0 +1,31 @@
+<div class="dashboard">
+  <!-- ton titre de page existant -->
+  <h1 class="title">🏅 Tableau de bord - Jeux Olympiques</h1>
+
+  <!-- 👇 bloc maquette ajouté -->
+  <div class="section-header">
+    <h3 class="pill">Medals per Country</h3>
+
+    <div class="kpis">
+      <div class="kpi-card">
+        <span>Number of JOs</span>
+        <strong>{{ totalJOs }}</strong>
+      </div>
+      <div class="kpi-card">
+        <span>Number of countries</span>
+        <strong>{{ totalCountries }}</strong>
+      </div>
+    </div>
+  </div>
+
+  <section class="chart-section">
+    <h2>Médailles totales par pays</h2>
+    <div class="chart-container">
+      <canvas baseChart
+              [data]="pieChartData"
+              [type]="'pie'"
+              [options]="pieChartOptions">
+      </canvas>
+    </div>
+  </section>
+</div>

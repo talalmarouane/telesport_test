@@ -1,0 +1,76 @@
+.dashboard {
+  text-align: center;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+
+  .title {
+    color: #2c3e50;
+    margin-bottom: 1.25rem;
+  }
+
+  /* --- bloc maquette --- */
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .pill {
+      background: #0f8b8d; /* teal maquette */
+      color: #fff;
+      padding: .5rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: .2px;
+      margin: 0;
+    }
+
+    .kpis {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .kpi-card {
+        min-width: 210px;
+        padding: .8rem 1rem;
+        border: 2px solid #0f8b8d;
+        border-radius: 10px;
+        background: #fff;
+
+        span {
+          display: block;
+          color: #4b5563;
+          margin-bottom: .3rem;
+        }
+
+        strong {
+          font-size: 1.25rem;
+          color: #111827;
+        }
+      }
+    }
+  }
+  /* --- /bloc maquette --- */
+
+  .chart-section {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.1);
+    max-width: 700px;
+    margin: 0 auto;
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #34495e;
+    }
+
+    .chart-container {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+  }
+}
