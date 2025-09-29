@@ -62,3 +62,5 @@
 # Commit : Création du composant HomeComponent (2025-10-04 17:54) 
 
 # Commit : Implémentation du routage principal (2025-09-23 20:19) 
+
+# Commit : Ajout du graphique ng2-charts (2025-09-29 08:00) 
