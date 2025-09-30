@@ -36,3 +36,5 @@
 # Commit : Optimisation des performances et nettoyage final (2025-09-28 03:05) 
 
 # Commit : Initialisation du projet Angular Telesport (2025-10-04 10:35) 
+
+# Commit : Ajout des modèles Olympic et Participation (2025-09-30 06:02) 
