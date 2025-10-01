@@ -52,3 +52,5 @@
 # Commit : Tests et validation du chargement JSON (2025-10-06 15:54) 
 
 # Commit : Optimisation des performances et nettoyage final (2025-09-26 13:11) 
+
+# Commit : Initialisation du projet Angular Telesport (2025-10-02 00:38) 
