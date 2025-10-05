@@ -40,3 +40,5 @@
 # Commit : Ajout des modèles Olympic et Participation (2025-09-30 06:02) 
 
 # Commit : Mise en place du service OlympicService (2025-10-08 09:32) 
+
+# Commit : Création du composant HomeComponent (2025-10-05 09:39) 
