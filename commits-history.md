@@ -64,3 +64,5 @@
 # Commit : Implémentation du routage principal (2025-09-23 20:19) 
 
 # Commit : Ajout du graphique ng2-charts (2025-09-29 08:00) 
+
+# Commit : Amélioration du design et refactorisation du code (2025-10-05 04:33) 
