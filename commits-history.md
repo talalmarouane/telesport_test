@@ -48,3 +48,5 @@
 # Commit : Ajout du graphique ng2-charts (2025-10-07 12:51) 
 
 # Commit : Amélioration du design et refactorisation du code (2025-09-23 06:56) 
+
+# Commit : Tests et validation du chargement JSON (2025-10-06 15:54) 
