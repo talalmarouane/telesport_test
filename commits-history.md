@@ -74,3 +74,5 @@
 # Commit : Initialisation du projet Angular Telesport (2025-10-04 21:46) 
 
 # Commit : Ajout des modèles Olympic et Participation (2025-10-08 19:50) 
+
+# Commit : Mise en place du service OlympicService (2025-10-07 23:02) 
