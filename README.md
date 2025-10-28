@@ -3,6 +3,7 @@
 Ce projet Angular affiche des visualisations interactives (camembert, courbes, KPIs) à partir de données simulées sur les Jeux Olympiques.
 Je propose une navigation simple entre une vue d’ensemble et le détail des performances d’un pays.
 
+
 ---
 
 ## ⚙️ Stack technique
@@ -18,18 +19,7 @@ Je propose une navigation simple entre une vue d’ensemble et le détail des pe
 
 ---
 
-## 🚏 Routes de l’application
 
-| Route | Description |
-|-------|-------------|
-| `/home` | Page d’accueil : vue d’ensemble avec graphique en camembert et KPIs |
-| `/detail/:country` | Détail d’un pays : graphique en ligne (médailles par année) |
-| `/test` | Page de test des données et du service Olympic |
-| `/404` ou route générique `**` | Page “Not Found” avec navigation vers l’accueil |
-
-> Redirection : `/` → `/home`
-
----
 
 ## 📦 Installation
 
@@ -61,6 +51,18 @@ ng serve
 ```
 
 Par défaut, l’application s’exécute sur http://localhost:4200
+
+---
+## 🚏 Routes de l’application
+
+| Route | Description |
+|-------|-------------|
+| `/home` | Page d’accueil : vue d’ensemble avec graphique en camembert et KPIs |
+| `/detail/:country` | Détail d’un pays : graphique en ligne (médailles par année) |
+| `/test` | Page de test des données et du service Olympic |
+| `/404` ou route générique `**` | Page “Not Found” avec navigation vers l’accueil |
+
+> Redirection : `/` → `/home`
 
 ---
 
