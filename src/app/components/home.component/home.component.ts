@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseChartDirective } from 'ng2-charts';
 import { Chart, ChartConfiguration, ChartOptions, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { OlympicService } from '../../core/services/olympic';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-// Chart.js + plugin datalabels
 Chart.register(...registerables, ChartDataLabels);
 
 @Component({
@@ -16,12 +17,12 @@ Chart.register(...registerables, ChartDataLabels);
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  // KPIs (maquette)
+export class HomeComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
+
   totalJOs = 0;
   totalCountries = 0;
 
-  // Pie chart
   pieChartData: ChartConfiguration<'pie'>['data'] = {
     labels: [],
     datasets: [{ data: [], backgroundColor: [] }]
@@ -31,13 +32,12 @@ export class HomeComponent implements OnInit {
     responsive: true,
     layout: { padding: 12 },
     plugins: {
-      legend: { display: false }, // maquette: pas de légende, labels autour
+      legend: { display: false },
       tooltip: {
         callbacks: {
           label: (ctx) => `${ctx.label}: ${ctx.raw} médailles`
         }
       },
-      // labels autour des parts (comme la maquette)
       datalabels: {
         color: '#34495e',
         font: { weight: 'bold', size: 13 },
@@ -49,7 +49,6 @@ export class HomeComponent implements OnInit {
         clip: false
       }
     },
-    // clic sur une part -> page détail
     onClick: (_event, elements) => {
       if (elements.length > 0) {
         const index = elements[0].index;
@@ -62,14 +61,12 @@ export class HomeComponent implements OnInit {
   constructor(private olympicService: OlympicService, private router: Router) {}
 
   ngOnInit(): void {
-    this.olympicService.getOlympics().subscribe((data) => {
-      // labels + valeurs
+    this.olympicService.getOlympics().pipe(takeUntil(this.destroy$)).subscribe((data) => {
       const labels = data.map(c => c.country);
       const values = data.map(c =>
         c.participations.reduce((sum, p) => sum + p.medalsCount, 0)
       );
 
-      // couleurs (ordre du JSON)
       const colors = ['#4CAF50', '#FFC107', '#2196F3', '#9C27B0', '#F44336'];
 
       this.pieChartData = {
@@ -77,11 +74,15 @@ export class HomeComponent implements OnInit {
         datasets: [{ data: values, backgroundColor: colors }]
       };
 
-      // KPIs
       this.totalCountries = data.length;
       const years = new Set<number>();
       data.forEach(c => c.participations.forEach(p => years.add(p.year)));
       this.totalJOs = years.size;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OlympicService } from '../../core/services/olympic';
 import { Chart, ChartConfiguration, registerables } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { CommonModule } from '@angular/common';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 Chart.register(...registerables);
 
@@ -14,7 +16,9 @@ Chart.register(...registerables);
   templateUrl: './component.detail.html',
   styleUrls: ['./component.detail.scss']
 })
-export class ComponentDetail implements OnInit {
+export class ComponentDetail implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
+
   country!: string;
   lineChartData: ChartConfiguration<'line'>['data'] = { labels: [], datasets: [] };
 
@@ -31,7 +35,7 @@ export class ComponentDetail implements OnInit {
   ngOnInit(): void {
     this.country = this.route.snapshot.paramMap.get('country')!;
 
-    this.olympicService.getOlympics().subscribe(data => {
+    this.olympicService.getOlympics().pipe(takeUntil(this.destroy$)).subscribe(data => {
       const countryData = data.find(c => c.country === this.country);
 
       if (countryData) {
@@ -59,5 +63,10 @@ export class ComponentDetail implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/home']);
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
